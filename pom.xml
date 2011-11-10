@@ -62,7 +62,7 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>run-condition</artifactId>
-            <version>0.1</version>
+            <version>0.4</version>
         </dependency>
         <!-- To try the condition using hpi:run, a plugin which uses the RunCondition is required to expose it
          Obviously, this dependency should not be present in a release of a plugin providing RunConditions! -->

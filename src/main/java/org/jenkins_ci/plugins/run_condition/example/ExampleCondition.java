@@ -56,14 +56,18 @@ public class ExampleCondition extends RunCondition {
 
     @Override
     public boolean runPrebuild(final AbstractBuild<?, ?> build, final BuildListener listener) {
-        return true;
+        return evaluate(build, listener);
     }
 
     @Override
     public boolean runPerform(final AbstractBuild<?, ?> build, final BuildListener listener) {
+        return evaluate(build, listener);
+    }
+
+    private boolean evaluate(final AbstractBuild<?, ?> build, final BuildListener listener) {
         if ((build.getNumber() % buildNumberMultiple) != 0) return false;
         if (onlyInOfficeHours && !isInOfficeHoursNow(listener)) return false;
-        return true;
+        return true;        
     }
 
     private boolean isInOfficeHoursNow(final BuildListener listener) {
